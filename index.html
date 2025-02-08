@@ -153,7 +153,10 @@
     </div>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
-        document.body.addEventListener("click", function() {
+        document.body.addEventListener("click", function(event) {
+            const linksContainer = document.querySelector(".links");
+            const linksRect = linksContainer.getBoundingClientRect();
+            if (event.clientY > linksRect.top) return;
             let overlay = document.createElement("div");
             overlay.style.position = "fixed";
             overlay.style.top = "0";
