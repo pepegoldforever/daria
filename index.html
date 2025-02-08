@@ -3,60 +3,153 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AMORE</title>
+    <title>DARIA</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+        
         body {
-            background-color: black;
-            color: white;
-            font-family: 'Courier New', monospace;
+            margin: 0;
+            padding: 0;
+            font-family: 'Press Start 2P', cursive;
             text-align: center;
+            background: url('https://files.catbox.moe/8ydroo.jpg') no-repeat center center fixed;
+            background-size: cover;
+            overflow: hidden;
         }
         .container {
-            margin-top: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            position: relative;
+        }
+        .falling-leaves {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            font-size: 30px;
+        }
+        @keyframes fall {
+            0% { transform: translateY(-10%); opacity: 1; }
+            100% { transform: translateY(100vh); opacity: 0; }
+        }
+        .leaf {
+            position: absolute;
+            animation: fall linear infinite;
+        }
+        .emoji-leaf {
+            position: absolute;
+            font-size: 24px;
+            animation: fall linear infinite;
+        }
+        .title-container {
+            position: relative;
+            display: inline-block;
+        }
+        .title {
+            font-size: 48px;
+            font-weight: bold;
+            color: #fff;
+            background: rgba(139, 69, 19, 0.8);
+            padding: 15px 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+        }
+        .gif-overlay {
+            position: absolute;
+            top: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: auto;
+        }
+        .gif-overlay-second {
+            position: absolute;
+            top: -139px;
+            left: 63%;
+            transform: translateX(-50%);
+            width: 96px;
+            height: auto;
+        }
+        .image-container {
+            margin: 20px 0;
+            padding: 10px;
+            border: 3px solid rgba(139, 69, 19, 0.8);
+            background: rgba(255, 228, 196, 0.5);
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        .image-container img {
+            width: 300px;
+            height: auto;
+            border-radius: 8px;
+        }
+        .links {
+            margin-top: 20px;
         }
         .links a {
-            color: red;
+            display: inline-block;
+            margin: 10px;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #8B4513, #A0522D);
+            color: white;
             text-decoration: none;
-            margin: 0 10px;
+            font-size: 18px;
+            border-radius: 25px;
+            transition: 0.3s;
+            box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.3);
         }
-        .ca-box {
-            margin: 20px auto;
+        .links a:hover {
+            background: linear-gradient(135deg, #A0522D, #8B4513);
+            transform: scale(1.05);
+        }
+        .footer-text {
+            margin-top: 20px;
+            font-size: 20px;
+            color: white;
+            background: rgba(0, 0, 0, 0.5);
             padding: 10px;
-            border: 2px solid red;
-            display: inline-block;
-            font-size: 14px;
-            background-color: black;
-        }
-        .image-box {
-            margin: 30px auto;
-            padding: 10px;
-            border: 1px solid white;
-            display: inline-block;
-        }
-        img {
-            width: 200px;
-            height: auto;
+            border-radius: 5px;
         }
     </style>
 </head>
-<body>
+
+    
+    <div class="falling-leaves"></div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const leafContainer = document.querySelector(".falling-leaves");
+            const emojis = ['🍂', '🍁', '🍃'];
+            for (let i = 0; i < 15; i++) {
+                let leaf = document.createElement("div");
+                leaf.classList.add("emoji-leaf");
+                leaf.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                leaf.style.left = Math.random() * 100 + "%";
+                leaf.style.animationDuration = Math.random() * 3 + 2 + "s";
+                leaf.style.fontSize = Math.random() * 20 + 20 + "px";
+                leafContainer.appendChild(leaf);
+            }
+        });
+    </script>
     <div class="container">
-        <h1>-+ AMORE +-</h1>
+        <div class="title-container">
+            <img class="gif-overlay" src="https://media.giphy.com/media/igSlIstIIsZMYa4ohS/giphy.gif" alt="GIF Overlay">
+            <img class="gif-overlay-second" src="https://media.giphy.com/media/Q2Yw6EPUxR1CWVMpL5/giphy.gif" alt="Second GIF Overlay">
+            <div class="title">DARIA</div>
+        </div>
+        <div class="image-container">
+            <img src="https://files.catbox.moe/dzqzw2.jpg" alt="DARIA">
+        </div>
         <div class="links">
-            <a href="#">twitter</a> |
-            <a href="#">telegram</a> |
-            <a href="#">pump.fun</a>
+            <a href="#">Telegram</a>
+            <a href="#">Twitter</a>
+            <a href="#">Pump.fun</a>
         </div>
-        <div class="ca-box">
-            <p><strong>CA:</strong><br>EVubHe4vukghzs8YrtToBCeNTPfUKc1VzzTbTfWpump</p>
-        </div>
-        <div>
-            <img src="https://via.placeholder.com/100" alt="Apple Icon">
-        </div>
-        <h2>-+ Amore info +-</h2>
-        <div class="image-box">
-            <img src="your-image-path.png" alt="Hand-drawn character">
-        </div>
+        <div class="footer-text">CA: evskjdfhdskjgfPump</div>
     </div>
 </body>
 </html>
